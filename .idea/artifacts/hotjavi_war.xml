@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="hotjavi:war">
+    <output-path>$PROJECT_DIR$/target</output-path>
+    <root id="archive" name="hotjavi.war">
+      <element id="artifact" artifact-name="hotjavi:war exploded" />
+    </root>
+  </artifact>
+</component>
