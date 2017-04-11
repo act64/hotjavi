@@ -20,20 +20,19 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="com.hotjavi.mapper.UserMapper">
+<mapper namespace="com.hotjavi.mapper.PingMapper">
 
 
-    <insert id="insertUser" parameterType="com.hotjavi.model.req.UserRegisterData" statementType="PREPARED">
-        INSERT INTO t_users (account,pwd,email,nickname) VALUE (#{account},#{pwd},#{email},#{nickname})
-    </insert>
 
-    <select id="checkAdmin" parameterType="com.hotjavi.model.req.UserAdminData" resultType="com.hotjavi.model.sql.UserModel" statementType="PREPARED">
-        SELECT * FROM t_users WHERE account=#{account} and pwd=#{pwd}
+
+    <select id="checkToken" parameterType="com.hotjavi.model.sql.TokenData" resultType="com.hotjavi.model.sql.TokenData" statementType="PREPARED">
+        SELECT * FROM t_tokens WHERE uid=#{uid} and token=#{token}
     </select>
 
-    <insert id="insertToken" parameterType="com.hotjavi.model.sql.TokenData" statementType="PREPARED">
-        INSERT INTO t_tokens (uid ,token) values(#{uid},#{token}) on duplicate KEY update token=#{token};
-    </insert>
+    <select id="queryEmail" parameterType="com.hotjavi.model.sql.TokenData" resultType="String">
+        select email from t_users right join t_tokens on t_users.id=t_tokens.uid where token =#{token};
+    </select>
+
     <!--<select id="getAllStudent" resultType="com.ssmdemo.entery.Student">-->
         <!--select * from t_student-->
     <!--</select>-->

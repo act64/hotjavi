@@ -100,7 +100,7 @@ public class AESUtils {
     }
 
     public static void main(String[]arg){
-        String content = "Leiyi6429533";
+        String content = "Leiyi642952";
         String password = "1430005628763-1000";
         //加密
         System.out.println("加密前：" + content);

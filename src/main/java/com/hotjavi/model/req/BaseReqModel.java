@@ -6,14 +6,14 @@ import java.util.HashMap;
  * Created by ylei on 17-4-6.
  */
 public class BaseReqModel<T> {
-    private HashMap<String,Object> header;
+    private RequestHead header;
     private T body;
 
-    public HashMap<String, Object> getHeader() {
+    public RequestHead getHeader() {
         return header;
     }
 
-    public void setHeader(HashMap<String, Object> header) {
+    public void setHeader(RequestHead header) {
         this.header = header;
     }
 
